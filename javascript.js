@@ -32,3 +32,40 @@ function getRound(user,computer){
     return ("not a valid choice");
 }
 }
+
+// create a function that plays 5 rounds and logs the results
+
+let playerScore = 0;
+let computerScore = 0;
+
+function game(){
+
+    for (let i = 0; i < 5; i++){
+        const userChoice = getUserChoice();
+        console.log("You chose: " + userChoice)
+        const computerSelection = getComputerSelection();
+        console.log("Computer chose: " + computerSelection)
+        const playRound = getRound(userChoice,computerSelection);
+        
+        console.log(playRound);
+        
+        if( playRound === "you win"){
+            playerScore++;
+        }else if (playRound === "you lose"){
+            computerScore++;
+        }
+        
+        console.log("player: " + playerScore);
+        console.log("computer: " + computerScore);
+        
+    }
+    if (playerScore > computerScore){
+        console.log("CONGRATS, You won the game")
+    }else if (playerScore < computerScore){
+        console.log("What a loser, you lost the game")
+    }else {
+        console.log("It's a tie")
+    }
+}
+
+game();
