@@ -5,3 +5,9 @@ function getUserChoice(){
     return choice;
 }
 
+//create a function to select randomly from rock, paper or scissors
+
+function getComputerSelection(){
+    const selections = ["rock", "paper", "scissors"];    
+    return selections.at(Math.floor(Math.random() * 3));
+}
