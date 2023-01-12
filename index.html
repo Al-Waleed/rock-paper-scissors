@@ -8,24 +8,28 @@
     <link rel="shortcut icon" href="./images/rock-paper-scissors.png" type="image/x-icon">
 </head>
 <body>
-    <h1>Welcome player choose your weapon</h1>
+    <h1>Welcome <span class="userName">Player</span> choose your weapon</h1>
     <div id="container">
-        <button class="button rock"><img class="icon" src="./images/rock.png" alt="rock"></button>
-        <button class="button paper"><img class="icon" src="./images/paper1.png" alt="paper"></button>
-        <button class="button scissors"><img class="icon" src="./images/scissor.png" alt="scissors"></button>
+        <button class="button choice rock"><img class="icon" src="./images/rock.png" alt="rock"></button>
+        <button class="button choice paper"><img class="icon" src="./images/paper1.png" alt="paper"></button>
+        <button class="button choice scissors"><img class="icon" src="./images/scissor.png" alt="scissors"></button>
     </div>
 
+    
     <div class="competitors">
-        <small>Player</small>
-        <img src="./images/versus.png" alt="versus">
-        <small>Computer</small>
+        <div class="scoreboard">
+            <span class="userName">Player</span>
+            <small class="playerScore">0</small>
+        </div>
+        <div class="scoreboard">
+            <img src="./images/versus.png" alt="versus">
+            <img src="./images/colon.png" alt="colon symbol">
+            <button class="restart button"><img src="./images/restart.png" alt="restart"></button>
+        </div>
+        <div class="scoreboard">
+            <small>Computer</small>
+            <small class="computerScore">0</small>
+        </div>
     </div>
-
-    <div class="scoreboard">
-        <small>score</small>
-        <img src="./images/colon.png" alt="colon symbol">
-        <small>score</small>
-    </div>
-    <button class="restart button"><img src="./images/restart.png" alt="restart"></button>
 </body>
 </html>

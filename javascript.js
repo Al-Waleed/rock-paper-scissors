@@ -1,43 +1,102 @@
-//create a function to ask the user for an input and converts it to lower case
-
-function getUserChoice(){   
-    let choice = prompt("Choose rock, paper or scissors").toLowerCase();  
-    return choice;
-}
+let userName = prompt("Enter your name")
+const playerName = document.querySelectorAll(".userName");
+playerName.forEach(element => { //get user name and replace "player" with it
+    element.textContent = `${userName}`;   
+});
 
 //create a function to select randomly from rock, paper or scissors
-
 function getComputerSelection(){
     const selections = ["rock", "paper", "scissors"];    
     return selections.at(Math.floor(Math.random() * 3));
 }
 
-//create a function that gets the result of 1 round of the game
+let choice = "";
+const rock = document.querySelector(".rock");
+rock.onclick = () => playRock();
+
+const paper = document.querySelector(".paper");
+paper.onclick = () => playPaper();
+
+const scissors = document.querySelector(".scissors");
+scissors.onclick = () => playScissors();
+
+let userScore = 0;
+let compScore = 0;
+
+const getUserScore = document.querySelector(".playerScore")
+const getCompScore = document.querySelector(".computerScore")
+/////////////////////////////////////////////////////////
+function playRock(){
+    let result = getRound("rock",getComputerSelection());
+
+     if (result === 0){
+        getCompScore.textContent = `${compScore++}`;
+     }else if ( result === 1){
+        getUserScore.textContent = `${userScore++}`;
+     };
+}
+
+function playPaper(){
+    let result = getRound("paper",getComputerSelection());
+
+     if (result === 0){
+        getCompScore.textContent = `${compScore++}`;
+     }else if ( result === 1){
+        getUserScore.textContent = `${userScore++}`;
+     };
+}
+
+function playScissors(){
+    let result = getRound("scissors",getComputerSelection());
+
+     if (result === 0){
+        getCompScore.textContent = `${compScore++}`;
+     }else if ( result === 1){
+        getUserScore.textContent = `${userScore++}`;
+     };
+}
+// if get round === 1 add 1 to compScore
+// if getRound === 2 add 1 to userScore
 function getRound(user,computer){
     if (user === computer){
-        return ("it's a tie");
+        return 2;
     }else if (user === "rock" && computer === "paper") {
-        return ("you lose");
+        return 0;
     }else if (user === "rock" && computer === "scissors") {
-        return ("you win");
+        return 1;
     }else if (user === "paper" && computer === "rock") {
-        return ("you win");
+        return 1;
     }else if (user === "paper" && computer === "scissors") {
-        return ("you lose");
+        return 0;
     }else if (user === "scissors" && computer === "rock") {
-        return ("you lose");
+        return 0;
     }else if (user === "scissors" && computer === "paper") {
-        return ("you win");
-    }else {
-    return ("not a valid choice");
-}
+        return 1;
+    }
 }
 
-// create a function that plays 5 rounds and logs the results
+// //create a function that gets the result of 1 round of the game
+// function getRound(user,computer){
+//     if (user === computer){
+//         return ("it's a tie");
+//     }else if (user === "rock" && computer === "paper") {
+//         return ("you lose");
+//     }else if (user === "rock" && computer === "scissors") {
+//         return ("you win");
+//     }else if (user === "paper" && computer === "rock") {
+//         return ("you win");
+//     }else if (user === "paper" && computer === "scissors") {
+//         return ("you lose");
+//     }else if (user === "scissors" && computer === "rock") {
+//         return ("you lose");
+//     }else if (user === "scissors" && computer === "paper") {
+//         return ("you win");
+//     }else {
+//     return ("not a valid choice");
+// }
+// }
 
-let playerScore = 0;
-let computerScore = 0;
-
+//create a function that plays 5 rounds and logs the results
 function game(){
 
     for (let i = 0; i < 5; i++){
