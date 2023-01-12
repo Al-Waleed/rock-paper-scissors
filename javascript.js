@@ -29,17 +29,37 @@ const getCompScore = document.querySelector(".computerScore")
 function playRock(){
     let result = getRound("rock",getComputerSelection());
 
-     if (result === 0){
-        getCompScore.textContent = `${compScore++}`;
-     }else if ( result === 1){
-        getUserScore.textContent = `${userScore++}`;
-     };
+    if (compScore >= 5){
+       getCompScore.textContent = `${0}`;
+       getUserScore.textContent = `${0}`;
+       alert("You lose")
+       history.go();
+    }else if (userScore >= 5) {
+       getUserScore.textContent = `${0}`;
+       getCompScore.textContent = `${0}`;
+       alert("You win")
+       history.go();
+    }else if (result === 0){
+       getCompScore.textContent = `${compScore++}`;
+    }else if ( result === 1){
+       getUserScore.textContent = `${userScore++}`;
+    };
 }
 
 function playPaper(){
     let result = getRound("paper",getComputerSelection());
 
-     if (result === 0){
+    if (compScore >= 5){
+        getCompScore.textContent = `${0}`;
+        getUserScore.textContent = `${0}`;
+        alert("You lose")
+        history.go();
+     }else if (userScore >= 5) {
+        getUserScore.textContent = `${0}`;
+        getCompScore.textContent = `${0}`;
+        alert("You win")
+        history.go();
+     }else if (result === 0){
         getCompScore.textContent = `${compScore++}`;
      }else if ( result === 1){
         getUserScore.textContent = `${userScore++}`;
@@ -49,7 +69,17 @@ function playPaper(){
 function playScissors(){
     let result = getRound("scissors",getComputerSelection());
 
-     if (result === 0){
+    if (compScore >= 5){
+        getCompScore.textContent = `${0}`;
+        getUserScore.textContent = `${0}`;
+        alert("You lose")
+        history.go();
+     }else if (userScore >= 5) {
+        getUserScore.textContent = `${0}`;
+        getCompScore.textContent = `${0}`;
+        alert("You win")
+        history.go();
+     }else if (result === 0){
         getCompScore.textContent = `${compScore++}`;
      }else if ( result === 1){
         getUserScore.textContent = `${userScore++}`;
